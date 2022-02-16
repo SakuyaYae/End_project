@@ -5,6 +5,7 @@ function main(){
 
 function recipe(){
   var main = document.getElementById("main");
+  var recipe;
   recipe = create_recipe();
   main.appendChild(recipe);
 }

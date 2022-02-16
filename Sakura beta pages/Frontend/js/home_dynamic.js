@@ -1,30 +1,29 @@
 function main(){
   console.info("Sakura")
-
   recipe(2);
 }
 
 function recipe(number_of_recipes){
   var main = document.getElementById("main");
-  var header2;
-  var paragraf;
-  var section;
-  var image;
   var recipe;
   for (var i = 0; i < number_of_recipes; i++) {
-    recipe = create_recipe(image, paragraf, section, header2, i);
+    recipe = create_recipe(i);
     main.appendChild(recipe);
   }
 }
 
-function create_recipe(image, paragraf, section, header2, img_num){
+function create_recipe(img_num){
+  var header2;
+  var paragraf;
+  var section;
+  var image;
   section = create_section();
   image = create_img(img_num);
   paragraf  = create_paragaf();
   header2 = create_h2();
 
-  section.appendChild(image);
   section.appendChild(header2);
+  section.appendChild(image);
   section.appendChild(paragraf);
   return section;
 }

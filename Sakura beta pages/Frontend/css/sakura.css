@@ -48,7 +48,6 @@ header nav {
 }
 
 header nav ul {
-  margin: 1%;
   display: -ms-grid;
   display: grid;
   -ms-grid-rows: auto;
@@ -166,24 +165,29 @@ footer a {
   list-style-type: none;
 }
 
-#upload form {
+#upload main {
+  height: 95%;
+}
+
+#upload main form {
   background-color: #000000;
   margin: 2%;
+  height: 100%;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: auto auto;
       grid-template-columns: auto auto;
 }
 
-#upload form input {
+#upload main form input {
   margin: 0.5rem;
 }
 
-#upload form label {
+#upload main form label {
   margin: 0.5rem;
 }
 
-#upload form button {
+#upload main form button {
   font-size: 90%;
   font-family: verdana;
 }

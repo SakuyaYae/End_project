@@ -29,7 +29,6 @@ header{
     nav{
         grid-area: n;
         ul{
-            margin: 1%;
             display: grid;
             grid-template-rows: auto;
         }
@@ -112,22 +111,27 @@ footer{
     }
 }
 #upload{
-    form{
-        background-color: #000000;
-        margin: 2%;
-        display: grid;
-        grid-template-columns: auto auto;
-        input{
-            margin: 0.5rem;
-        }
-        label{
-            margin: 0.5rem;
-        }
-        button{
-            font-size: 90%;
-            font-family: verdana;
+    main{
+        height: 95%;
+        form{
+            background-color: #000000;
+            margin: 2%;
+            height: 100%;
+            display: grid;
+            grid-template-columns: auto auto;
+            input{
+                margin: 0.5rem;
+            }
+            label{
+                margin: 0.5rem;
+            }
+            button{
+                font-size: 90%;
+                font-family: verdana;
+            }
         }
     }
+    
 }
 #about{
     main{

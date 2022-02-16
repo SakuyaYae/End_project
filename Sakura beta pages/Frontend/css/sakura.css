@@ -187,4 +187,17 @@ footer a {
   font-size: 90%;
   font-family: verdana;
 }
+
+#about main section h2 {
+  font-size: 120%;
+}
+
+#about main section p {
+  font-size: 90%;
+}
+
+#about main section img {
+  margin: 2rem;
+  width: 80%;
+}
 /*# sourceMappingURL=sakura.css.map */

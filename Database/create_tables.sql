@@ -10,7 +10,9 @@ id INT NOT NULL PRIMARY KEY,
 title VARCHAR(75) NOT NULL,
 image VARCHAR(256),
 ingrediens VARCHAR(250) NOT NULL,
-descriptions VARCHAR(300) NOT NULL,
+descriptions VARCHAR(150) NOT NULL,
+guide VARCHAR(300) NOT NULL,
+category VARCHAR(40) NOT NULL,
 username VARCHAR(32) NOT NULL,
 FOREIGN KEY (username) REFERENCES users(username)
 )

@@ -9,7 +9,7 @@ package sakuya.yae.end_project.entities;
  *
  * @author SakuyaYae
  */
-public class Recipe {
+public class Recipe_Builder {
     private String title;
     private String description;
     private String category;
@@ -17,74 +17,70 @@ public class Recipe {
     private String ingrediens;
     private String username;
     private String image;
-
-    public Recipe(Recipe_Builder builder) {
-        this.title = builder.getTitle();
-        this.description = builder.getDescription();
-        this.category = builder.getCategory();
-        this.guide = builder.getGuide();
-        this.ingrediens = builder.getIngrediens();
-        this.username = builder.getUsername();
-        this.image = builder.getImage();
-    }
     
     public String getTitle() {
         return title;
     }
 
-    public void setTitle(String title) {
+    public Recipe_Builder Title(String title) {
         this.title = title;
+        return this;
     }
 
     public String getDescription() {
         return description;
     }
 
-    public void setDescription(String description) {
+    public Recipe_Builder Description(String description) {
         this.description = description;
+        return this;
     }
 
     public String getCategory() {
         return category;
     }
 
-    public void setCategory(String category) {
+    public Recipe_Builder Category(String category) {
         this.category = category;
+        return this;
     }
 
     public String getGuide() {
         return guide;
     }
 
-    public void setGuide(String guide) {
+    public Recipe_Builder Guide(String guide) {
         this.guide = guide;
+        return this;
     }
 
     public String getIngrediens() {
         return ingrediens;
     }
 
-    public void setIngrediens(String ingrediens) {
+    public Recipe_Builder Ingrediens(String ingrediens) {
         this.ingrediens = ingrediens;
+        return this;
     }
 
     public String getUsername() {
         return username;
     }
 
-    public void setUsername(String username) {
+    public Recipe_Builder Username(String username) {
         this.username = username;
+        return this;
     }
 
     public String getImage() {
         return image;
     }
 
-    public void setImage(String image) {
+    public Recipe_Builder Image(String image) {
         this.image = image;
+        return this;
     }
-    
-    
-    
-    
+    public Recipe Build(){
+        return new Recipe(this);
+    }
 }

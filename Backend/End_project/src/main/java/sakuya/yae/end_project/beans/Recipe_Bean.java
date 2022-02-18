@@ -7,9 +7,11 @@ package sakuya.yae.end_project.beans;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import javax.ejb.Stateless;
 import sakuya.yae.end_project.Connection_Factory;
 import sakuya.yae.end_project.entities.Recipe;
+import sakuya.yae.end_project.entities.Recipe_Builder;
 
 /**
  *
@@ -20,7 +22,36 @@ public class Recipe_Bean {
     
     
     
-    
+        public Recipe getManga(){
+        
+        try(Connection con = Connection_Factory.getconnection()){
+            
+            PreparedStatement stmt = con.prepareStatement("SELECT * FROM `recipe` ");
+            ResultSet result = stmt.executeQuery();
+            
+            while(result.next()){
+                String title = result.getString("title");
+                String description = result.getString("description");
+                String category = result.getString("category");
+                String guide = result.getString("guide");
+                String ingrediens = result.getString("ingrediens");
+                String username= result.getString("username");
+                String image = result.getString("image");
+                Recipe recipe = new Recipe_Builder().Title(title)
+                        .Description(description)
+                        .Category(category)
+                        .Guide(guide)
+                        .Ingrediens(ingrediens)
+                        .Username(username)
+                        .Image(image)
+                        .Build();
+            }
+        }catch(Exception e){
+        System.out.println("MangaBean.getmanga: " + e.getMessage());
+        }
+        return MangaList;
+    }
+
         public boolean postRecipe(Recipe recipe){
             boolean success = false;
             try(Connection con = Connection_Factory.getconnection()){

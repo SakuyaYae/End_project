@@ -204,4 +204,62 @@ footer a {
   margin: 2rem;
   width: 80%;
 }
+
+#sign_up main {
+  height: 95%;
+}
+
+#sign_up main form {
+  background-color: #000000;
+  margin: 3%;
+  height: 90%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: auto auto;
+      grid-template-columns: auto auto;
+}
+
+#sign_up main form input {
+  margin: 0.5rem;
+}
+
+#sign_up main form label {
+  margin: 0.5rem;
+}
+
+#sign_up main form button {
+  margin: 1rem;
+  margin-top: 0.5rem;
+  font-size: 100%;
+  font-family: verdana;
+  width: 200%;
+  height: 50%;
+}
+
+#login main form {
+  background-color: #000000;
+  margin: 4%;
+  height: 90%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: auto auto;
+      grid-template-columns: auto auto;
+}
+
+#login main form input {
+  margin: 0.5rem;
+}
+
+#login main form label {
+  margin: 0.5rem;
+}
+
+#login main form button {
+  margin: 1rem;
+  margin-top: 0.5rem;
+  font-size: 100%;
+  font-family: verdana;
+  width: 225%;
+  height: 50%;
+}
 /*# sourceMappingURL=sakura.css.map */

@@ -149,3 +149,56 @@ footer{
         }
     }
 }
+#sign_up{
+    main{
+        height: 95%;
+        form{
+            background-color: #000000;
+            margin: 3%;
+            height: 90%;
+            display: grid;
+            grid-template-columns: auto auto;
+            input{
+                margin: 0.5rem;
+            }
+            label{
+                margin: 0.5rem;
+            }
+            button{
+                margin: 1rem;
+                margin-top: 0.5rem;
+                font-size: 100%;
+                font-family: verdana;
+                width: 200%;
+                height: 50%;
+            }
+        }
+    }
+    
+}
+#login{
+    main{
+        form{
+            background-color: #000000;
+            margin: 4%;
+            height: 90%;
+            display: grid;
+            grid-template-columns: auto auto;
+            input{
+                margin: 0.5rem;
+            }
+            label{
+                margin: 0.5rem;
+            }
+            button{
+                margin: 1rem;
+                margin-top: 0.5rem;
+                font-size: 100%;
+                font-family: verdana;
+                width: 225%;
+                height: 50%;
+            }
+        }
+    }
+    
+}

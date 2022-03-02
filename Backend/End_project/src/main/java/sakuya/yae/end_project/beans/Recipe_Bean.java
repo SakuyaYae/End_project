@@ -8,6 +8,8 @@ package sakuya.yae.end_project.beans;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 import javax.ejb.Stateless;
 import sakuya.yae.end_project.Connection_Factory;
 import sakuya.yae.end_project.entities.Recipe;
@@ -22,35 +24,40 @@ public class Recipe_Bean {
     
     
     
-        public Recipe getManga(){
-        
-        try(Connection con = Connection_Factory.getconnection()){
+        public List<Recipe> getRecipe(){
+            List<Recipe> Recipe_list = new ArrayList<>();
+            try(Connection con = Connection_Factory.getconnection()){
             
-            PreparedStatement stmt = con.prepareStatement("SELECT * FROM `recipe` ");
-            ResultSet result = stmt.executeQuery();
+                PreparedStatement stmt = con.prepareStatement("SELECT * FROM `recipe` ");
+                ResultSet result = stmt.executeQuery();
             
-            while(result.next()){
-                String title = result.getString("title");
-                String description = result.getString("description");
-                String category = result.getString("category");
-                String guide = result.getString("guide");
-                String ingrediens = result.getString("ingrediens");
-                String username= result.getString("username");
-                String image = result.getString("image");
-                Recipe recipe = new Recipe_Builder().Title(title)
-                        .Description(description)
-                        .Category(category)
-                        .Guide(guide)
-                        .Ingrediens(ingrediens)
-                        .Username(username)
-                        .Image(image)
-                        .Build();
+                while(result.next()){
+                    String title = result.getString("title");
+                    String description = result.getString("description");
+                    String category = result.getString("category");
+                    String guide = result.getString("guide");
+                    String ingrediens = result.getString("ingrediens");
+                    String username= result.getString("username");
+                    String image = result.getString("image");
+                    
+                    Recipe recipe = new Recipe_Builder()
+                                    .Title(title)
+                                    .Description(description)
+                                    .Category(category)
+                                    .Guide(guide)
+                                    .Ingrediens(ingrediens)
+                                    .Username(username)
+                                    .Image(image)
+                                    .Build();
+                    
+                    Recipe_list.add(recipe);
+                }
             }
-        }catch(Exception e){
-        System.out.println("MangaBean.getmanga: " + e.getMessage());
+            catch(Exception e){
+                System.out.println("Recipe_Bean.getRecipe: " + e.getMessage());
+            }
+            return Recipe_list;
         }
-        return MangaList;
-    }
 
         public boolean postRecipe(Recipe recipe){
             boolean success = false;
@@ -65,8 +72,6 @@ public class Recipe_Bean {
                 stmt.setString(6, recipe.getImage());
                 stmt.setString(7, recipe.getIngrediens());
                 success = stmt.executeUpdate() > 0;
-            
-           
             }
             catch(Exception e){
                 System.out.println("Recipe_Bean.postRecipe: " + e.getMessage());

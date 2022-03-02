@@ -24,21 +24,20 @@ import sakuya.yae.end_project.entities.Recipe;
 public class Recipe_Resource {
     @EJB
     Recipe_Bean recipe_bean;
-    
-        @GET
-    public Response getManga(){
-        
-        if(.size() > 0){
-            return Response
-                .ok()
-                .build();
+    @Path("recipe")
+    @Consumes(MediaType.APPLICATION_JSON)
+
+    @GET
+    public Response getRecipe(){
+        List<Recipe> recipe = recipe_bean.getRecipe();
+        if(recipe.size() > 0){
+            return Response.status(Response.Status.OK).build();
     }
         else{
-            return Response
-                .noContent()
-                .build();
+            return Response.status(Response.Status.NO_CONTENT).build();
         }
     }
+    
     @POST
     public Response postManga(Recipe recipe){
         if(recipe_bean.postRecipe(recipe)){

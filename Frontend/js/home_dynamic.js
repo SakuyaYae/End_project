@@ -36,6 +36,9 @@ function create_section(){
 function create_img(img_num){
   var img_list = img_list = ["img/anime_kitsune.jpg", "img/anime.jpg", "img/fate.png", "img/anime_neko.png", "img/gekko.jpg", "img/yuyuko.png", "img/nagao.png", "img/kazuki.jpg"];
   var img = document.createElement("img");
+  if(img_num > 7){
+    img_num = 0;
+  }
   img.src = img_list[img_num];
   return img;
 }

@@ -78,5 +78,36 @@ function create_list(nr_of_li){
 
   return ul;
 }
+// currently unused function
+function create_button(){
+  var button = document.createElement("button");
+  var button_text = document.createTextNode("Like");
+  button.appendChild(button_text);
+  return button;
+}
+// currently unused function
+function create_comment_box(){
+  var comment_box = document.createElement("div");
+  var user_input = create_input();
+  var user_comments = create_comments();
+  comment_box.id = "comment_container"
+  comment_box.appendChild(user_input);
+  comment_box.appendChild(user_comments);
+  return comment_box;
+}
+
+function create_input(){
+  var input = document.createElement("input");
+  input.type = "text";
+  input.placeholder = "Comments";
+  return input;
+}
+
+function create_comments(){
+  var comments = document.createElement("p");
+  var comment_text = document.createTextNode("Sakuya");
+  comments.appendChild(comment_text);
+  return comments;
+}
 
 window.onload = main()

@@ -1,6 +1,6 @@
 function main(){
   console.info("Sakura")
-  recipe(2);
+  recipe(8);
 }
 
 function recipe(number_of_recipes){
@@ -34,7 +34,7 @@ function create_section(){
 }
 
 function create_img(img_num){
-  var img_list = img_list = ["img/anime_kitsune.jpg", "img/anime.jpg"];
+  var img_list = img_list = ["img/anime_kitsune.jpg", "img/anime.jpg", "img/fate.png", "img/anime_neko.png", "img/gekko.jpg", "img/yuyuko.png", "img/nagao.png", "img/kazuki.jpg"];
   var img = document.createElement("img");
   img.src = img_list[img_num];
   return img;
@@ -53,4 +53,5 @@ function create_h2(){
     h2.appendChild(h2_text);
     return h2;
 }
+
 window.onload = main()

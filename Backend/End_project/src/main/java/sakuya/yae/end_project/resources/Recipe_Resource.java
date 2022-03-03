@@ -21,11 +21,14 @@ import sakuya.yae.end_project.entities.Recipe;
  *
  * @author SakuyaYae
  */
+ @Produces(MediaType.APPLICATION_JSON)
+ @Path("recipe")
+ @Consumes(MediaType.APPLICATION_JSON)
 public class Recipe_Resource {
+    
     @EJB
     Recipe_Bean recipe_bean;
-    @Path("recipe")
-    @Consumes(MediaType.APPLICATION_JSON)
+
 
     @GET
     public Response getRecipe(){

@@ -8,6 +8,7 @@ package sakuya.yae.end_project.resources;
 import javax.ejb.EJB;
 import javax.ws.rs.GET;
 import javax.ws.rs.HeaderParam;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.core.Response;
 import sakuya.yae.end_project.beans.User_bean;
@@ -15,7 +16,7 @@ import sakuya.yae.end_project.entities.Users;
 
 /**
  *
- * @author Sakuya
+ * @author SakuyaYae
  */
 @Path("user")
 public class User_Resource {
@@ -29,10 +30,11 @@ public class User_Resource {
             return Response.status(Response.Status.CREATED).build();
         }
         else{
-            return Response.status(Response.Status.BAD_REQUEST).build();
+            return Response.status(Response.Status.UNAUTHORIZED).build();
         }
     }
-    @GET
+    
+    @POST
     public Response create_user(@HeaderParam("Authorization") String authorization){
         Users user = user_bean.createUser(authorization);
         if(user_bean.saveUser(user) == 1){

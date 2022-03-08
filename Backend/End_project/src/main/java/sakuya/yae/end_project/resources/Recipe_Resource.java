@@ -42,7 +42,7 @@ public class Recipe_Resource {
     }
     
     @POST
-    public Response postManga(Recipe recipe){
+    public Response postRecipe(Recipe recipe){
         if(recipe_bean.postRecipe(recipe)){
             return Response.status(Response.Status.CREATED).build();
         }

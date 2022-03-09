@@ -1,6 +1,6 @@
 function main(){
   var upload = document.getElementById("upload");
-  upload.onclick = post_recipe();
+  upload.onclick = post_recipe;
   console.info("Sakura")
 }
 
@@ -27,7 +27,9 @@ function user_input(){
 }
 
 function send_data(recipe){
-  console.info("Sending")
+  for(var i = 0; i < recipe.length; i++){
+    console.info(recipe[i])
+  }
 }
 
 window.onload = main()

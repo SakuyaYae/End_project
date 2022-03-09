@@ -6,9 +6,11 @@ function sakura_recipe_retrival(){
         return Response.json();
     }
     else{
-        return `HTTP error! Status: ${Response.status}`;
-    }})
+        throw new Error(`HTTP error! Status: ${Response.status}`);
+    }
+    })
     console.info("sakura")
+    return "recipe Error";
 }
 
 function sakura_user_retrival(){
@@ -16,9 +18,11 @@ function sakura_user_retrival(){
         return Response.json();
     }
     else{
-        return `HTTP error! Status: ${Response.status}`;
-    }})
+        throw new Error(`HTTP error! Status: ${Response.status}`);
+    }
+    })
     console.info("sakura")
+    return " user error";
 }
 
 function sakura_main(){

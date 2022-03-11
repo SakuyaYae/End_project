@@ -7,9 +7,7 @@ async function sakura_recipe_retrival(){
             return Response.text();
         }
         else{
-            console.info("");
-            console.info("Yuki");
-            throw new Error(`HTTP error! Status: ${Response.status}`);
+            throw new Error(`HTTP error! Status: ${Response.status, Response.statusText}`);
         }
     }).then((Response) => {
         console.info(Response);

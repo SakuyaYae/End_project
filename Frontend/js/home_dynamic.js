@@ -1,6 +1,22 @@
+const recipe_request = new Request("http://localhost:8080/End_project/api/recipe", {method:"GET", mode:"cors", body: null});
+
 function main(){
-  console.info("Sakura")
+  console.info("Sakura");
+  recipe_retrival();
   recipe(8);
+}
+
+async function recipe_retrival(){
+  const res = await fetch(recipe_request).then((Response) => {
+      if(Response.ok){
+          return Response.text();
+      }
+      else{
+          throw new Error(`HTTP error! Status: ${Response.status, Response.statusText}`);
+      }
+  }).then((Response) => {
+      console.info(Response);
+   });
 }
 
 function recipe(number_of_recipes){

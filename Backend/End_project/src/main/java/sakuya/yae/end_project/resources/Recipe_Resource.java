@@ -34,7 +34,7 @@ public class Recipe_Resource {
     public Response getRecipe(){
         List<Recipe> recipe = recipe_bean.getRecipe();
         if(recipe.size() > 0){
-            return Response.status(Response.Status.OK).build();
+            return Response.status(Response.Status.OK).entity(recipe).build();
     }
         else{
             return Response.status(Response.Status.NO_CONTENT).build();

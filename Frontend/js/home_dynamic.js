@@ -1,9 +1,10 @@
 const recipe_request = new Request("http://localhost:8080/End_project/api/recipe", {method:"GET", mode:"cors", body: null});
+var recipe_reponse;
 
-function main(){
+async function main(){
   console.info("Sakura");
-  recipe_retrival();
-  recipe(8);
+  await recipe_retrival();
+  recipe(9);
 }
 
 async function recipe_retrival(){
@@ -16,13 +17,14 @@ async function recipe_retrival(){
       }
   }).then((Response) => {
       console.info(Response);
+      recipe_reponse = JSON.parse(Response);
    });
 }
 
 function recipe(number_of_recipes){
   var main = document.getElementById("main");
   var recipe;
-  for (var i = 0; i < number_of_recipes; i++) {
+  for(var i = 0; i < number_of_recipes; i++){
     recipe = create_recipe(i);
     main.appendChild(recipe);
   }
@@ -52,6 +54,7 @@ function create_section(){
 function create_img(img_num){
   var img_list = ["img/anime_kitsune.jpg", "img/anime.jpg", "img/fate.png", "img/anime_neko.png", "img/gekko.jpg", "img/yuyuko.png", "img/nagao.png", "img/kazuki.jpg"];
   var img = document.createElement("img");
+  img_list[9] = "img/" + recipe_reponse.image;
   var len = img_list.length;
   if(img_num > len - 1){
     img_num = 0;
@@ -69,7 +72,7 @@ function create_paragaf(){
 
 function create_h2(){
     var h2 = document.createElement("h2");
-    var h2_text = document.createTextNode("Temp Food");
+    var h2_text = document.createTextNode(recipe_reponse.title);
     h2.appendChild(h2_text);
     return h2;
 }

@@ -13,8 +13,8 @@ ingrediens VARCHAR(250) NOT NULL,
 descriptions VARCHAR(150) NOT NULL,
 guide VARCHAR(300) NOT NULL,
 category VARCHAR(40) NOT NULL,
-username VARCHAR(32) NOT NULL,
-FOREIGN KEY (username) REFERENCES users(username)
+username VARCHAR(32) NOT NULL
+/*,FOREIGN KEY (username) REFERENCES users(username)*/
 )
 ENGINE INNODB
 CHARSET UTF8;

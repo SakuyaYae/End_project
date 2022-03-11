@@ -1,0 +1,1 @@
+INSERT INTO recipe(title, ingrediens , descriptions, image, guide, category) VALUES ("Fried greens and meat", "meat. nuddles. mushrooms. soy souce. corn. pinaple. sallad " , "Both vegtebles and meat that is fried in a fyring pan whit soy souce", "fate.png", "put evrything in the frying pan and fy for 45 min", "meat");

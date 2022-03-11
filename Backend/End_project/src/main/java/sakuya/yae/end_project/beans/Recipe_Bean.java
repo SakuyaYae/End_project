@@ -28,12 +28,12 @@ public class Recipe_Bean {
             List<Recipe> Recipe_list = new ArrayList<>();
             try(Connection con = Connection_Factory.getconnection()){
             
-                PreparedStatement stmt = con.prepareStatement("SELECT * FROM `recipe` ");
+                PreparedStatement stmt = con.prepareStatement("SELECT * FROM `recipe`");
                 ResultSet result = stmt.executeQuery();
             
                 while(result.next()){
                     String title = result.getString("title");
-                    String description = result.getString("description");
+                    String description = result.getString("descriptions");
                     String category = result.getString("category");
                     String guide = result.getString("guide");
                     String ingrediens = result.getString("ingrediens");

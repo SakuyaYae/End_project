@@ -1,9 +1,8 @@
-const recipe_data = new Request("http://localhost:8080/End_project/api/recipe", {method:"GET", body: null});
+const recipe_data = new Request("http://localhost:8080/End_project/api/recipe", {method:"GET", mode:"cors", body: null});
 const user_data = new Request("http://localhost:8080/End_project/api/user", {method:"GET", mode:"no-cors"});
 
-function sakura_recipe_retrival(){
-    var data;
-    fetch(recipe_data).then((Response) => {
+async function sakura_recipe_retrival(){
+    const res = await fetch(recipe_data).then((Response) => {
         if(Response.ok){
             return Response.text();
         }
@@ -14,9 +13,7 @@ function sakura_recipe_retrival(){
         }
     }).then((Response) => {
         console.info(Response);
-        data = Response;
      });
-     return data;
 }
 
 function sakura_user_retrival(){

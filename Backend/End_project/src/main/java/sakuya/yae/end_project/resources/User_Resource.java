@@ -23,6 +23,11 @@ public class User_Resource {
     @EJB
     User_bean user_bean;
     
+    /**
+     * GET method function for validating a user
+     * @param authorization
+     * @return  Response status 201 if user is is a valid user otherwise Response status 401
+     */
     @GET
     public Response check_user(@HeaderParam("Authorization") String authorization){
         Users user = user_bean.createUser(authorization);
@@ -34,6 +39,11 @@ public class User_Resource {
         }
     }
     
+    /**
+     *  POST method function for creating user
+     * @param authorization
+     * @return Response status 201 if user was craated succsefuly otherwise Response status 400
+     */
     @POST
     public Response create_user(@HeaderParam("Authorization") String authorization){
         Users user = user_bean.createUser(authorization);

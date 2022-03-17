@@ -60,7 +60,7 @@ function create_list(nr_of_li){
   
   return ul;
 }
-
+// option_num is a number for determening what text the a-tag shall have 
 function create_a(option_num){
   var a = document.createElement("a");
   var option = ["Sign up","Login", ""];

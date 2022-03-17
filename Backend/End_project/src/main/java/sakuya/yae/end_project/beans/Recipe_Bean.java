@@ -22,9 +22,11 @@ import sakuya.yae.end_project.entities.Recipe_Builder;
 @Stateless
 public class Recipe_Bean {
     
-    
-    
-        public List<Recipe> getRecipe(){
+    /**
+     * Function for retriving data from a database.
+     * @return ArryList of type Recipe containing data for a recipe
+     */
+    public List<Recipe> getRecipe(){
             List<Recipe> Recipe_list = new ArrayList<>();
             try(Connection con = Connection_Factory.getconnection()){
             
@@ -59,7 +61,12 @@ public class Recipe_Bean {
             return Recipe_list;
         }
 
-        public boolean postRecipe(Recipe recipe){
+    /**
+     * Function for storing data in the database
+     * @param recipe
+     * @return true if the SQL INSERT alterd any rows in the database or false if no row are afected
+     */
+    public boolean postRecipe(Recipe recipe){
             boolean success = false;
             try(Connection con = Connection_Factory.getconnection()){
             

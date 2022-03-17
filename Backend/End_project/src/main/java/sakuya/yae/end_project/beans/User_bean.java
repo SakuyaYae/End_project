@@ -20,6 +20,12 @@ import sakuya.yae.end_project.entities.Users;
  */
 @Stateless
 public class User_bean {
+
+    /**
+     * Function for createing User objects from a basic auth String
+     * @param user_data
+     * @return A User object whit a username and password
+     */
     public Users createUser(String user_data){
         user_data = user_data.substring(6).trim();
         
@@ -31,6 +37,11 @@ public class User_bean {
         return new Users(username, password);
     }
     
+    /**
+     * Function for verifying users
+     * @param user
+     * @return true if user exists in the database or false otherwise
+     */
     public boolean checkUser(Users user){
           try(Connection con = Connection_Factory.getconnection()){
             PreparedStatement stmt = con.prepareStatement("SELECT * FROM users WHERE username = ?");
@@ -51,6 +62,11 @@ public class User_bean {
         }
     }
     
+    /**
+     * Function for saving users in the database
+     * @param user
+     * @return number of row affected in the database
+     */
     public int saveUser(Users user){
         try(Connection con = Connection_Factory.getconnection()){
             String Hashed_password = BCrypt.withDefaults().hashToString(12, user.getPassword().toCharArray());

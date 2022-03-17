@@ -13,23 +13,44 @@ public class Users {
     private String user;
     private String password;
 
+    /**
+     *
+     * @param user
+     * @param password
+     */
     public Users(String user, String password) {
         this.user = user;
         this.password = password;
     }
     
+    /**
+     *
+     * @return
+     */
     public String getUser() {
         return user;
     }
 
+    /**
+     *
+     * @param user
+     */
     public void setUser(String user) {
         this.user = user;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getPassword() {
         return password;
     }
 
+    /**
+     *
+     * @param password
+     */
     public void setPassword(String password) {
         this.password = password;
     }

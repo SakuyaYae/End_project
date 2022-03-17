@@ -3,6 +3,7 @@ function main(){
   recipe();
 }
 
+// runs the functon for createing the recipe section and placees the section in the main tag
 function recipe(){
   var main = document.getElementById("main");
   var recipe;
@@ -10,6 +11,7 @@ function recipe(){
   main.appendChild(recipe);
 }
 
+// runs all functions for the difrent parts requaerd for a recipe and puts togeter a section of them. returns a html section whit the entier recipe
 function create_recipe(){
   var section = create_section();
   var image = create_img();
@@ -58,6 +60,7 @@ function create_h3(){
     return h3;
 }
 
+// creates a unorderd list whit list items containig igediens for the recipe
 function create_list(nr_of_li){
   var ul = document.createElement("ul");
   var li = [];
@@ -78,14 +81,16 @@ function create_list(nr_of_li){
 
   return ul;
 }
-// currently unused function
+// all functions below are not currently used and where ment to handle comments and likes
+
+// the function for the like buton it returns a button whit the text: Like
 function create_button(){
   var button = document.createElement("button");
   var button_text = document.createTextNode("Like");
   button.appendChild(button_text);
   return button;
 }
-// currently unused function
+// a function for createing a container for the like button and the comments of the recipe
 function create_comment_box(){
   var comment_box = document.createElement("div");
   var user_input = create_input();

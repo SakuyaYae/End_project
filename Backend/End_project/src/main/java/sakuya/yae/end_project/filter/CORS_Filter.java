@@ -13,11 +13,17 @@ import javax.ws.rs.ext.Provider;
 
 /**
  *
- * @author Elev
+ * @author SakuyaYae
  */
 @Provider
 public class CORS_Filter implements ContainerResponseFilter{
 
+    /**
+     * A filter for enebelimg the use of CORS on frontend
+     * @param crc
+     * @param cres
+     * @throws IOException
+     */
     @Override
     public void filter(ContainerRequestContext crc, ContainerResponseContext cres) throws IOException {
         

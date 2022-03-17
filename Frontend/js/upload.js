@@ -10,6 +10,7 @@ function post_recipe(){
   console.info("====")
 }
 
+// takes the users input and stors it in a list and returns the list
 function user_input(){
   var title = document.getElementById("title");
   var description = document.getElementById("description");
@@ -26,6 +27,7 @@ function user_input(){
   return recipe_data;
 }
 
+// used to send the data from the users input to the server
 function send_data(recipe){
   for(var i = 0; i < recipe.length; i++){
     console.info(recipe[i])

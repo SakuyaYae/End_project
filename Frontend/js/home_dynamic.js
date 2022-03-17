@@ -1,4 +1,4 @@
-const recipe_request = new Request("http://localhost:8080/End_project/api/recipe", {method:"GET", mode:"cors", body: null});
+const recipe_request = new Request("http://localhost:8080/End_project/api/recipe", {method:"GET", mode:"cors"});
 var recipe_reponse;
 
 async function main(){
@@ -7,6 +7,7 @@ async function main(){
   recipe(9);
 }
 
+// a function for retriving recipes from the server
 async function recipe_retrival(){
   const res = await fetch(recipe_request).then((Response) => {
       if(Response.ok){
@@ -17,10 +18,10 @@ async function recipe_retrival(){
       }
   }).then((Response) => {
       console.info(Response);
-      recipe_reponse = JSON.parse(Response);
    });
 }
 
+// a function for createing recipes and adding them to the main-tag in the html page
 function recipe(number_of_recipes){
   var main = document.getElementById("main");
   var recipe;
@@ -29,7 +30,7 @@ function recipe(number_of_recipes){
     main.appendChild(recipe);
   }
 }
-
+//runs all functions for the difrent parts requaerd for a recipe and puts togeter a section of them. returns a html section whit the entier recipe
 function create_recipe(img_num){
   var header2;
   var paragraf;
@@ -51,10 +52,11 @@ function create_section(){
   return section;
 }
 
+// img_num is a number for determening what image to use for the recipe
 function create_img(img_num){
   var img_list = ["img/anime_kitsune.jpg", "img/anime.jpg", "img/fate.png", "img/anime_neko.png", "img/gekko.jpg", "img/yuyuko.png", "img/nagao.png", "img/kazuki.jpg"];
   var img = document.createElement("img");
-  img_list[9] = "img/" + recipe_reponse.image;
+  //img_list[9] = "img/" + recipe_reponse.image;
   var len = img_list.length;
   if(img_num > len - 1){
     img_num = 0;
@@ -72,7 +74,7 @@ function create_paragaf(){
 
 function create_h2(){
     var h2 = document.createElement("h2");
-    var h2_text = document.createTextNode(recipe_reponse.title);
+    var h2_text = document.createTextNode("test");
     h2.appendChild(h2_text);
     return h2;
 }

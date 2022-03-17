@@ -17,7 +17,7 @@ public class Recipe_Builder {
     private String ingrediens;
     private String username;
     private String image;
-    
+
     public String getTitle() {
         return title;
     }
@@ -80,7 +80,7 @@ public class Recipe_Builder {
         this.image = image;
         return this;
     }
-    
+
     public Recipe Build(){
         return new Recipe(this);
     }

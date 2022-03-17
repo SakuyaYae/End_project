@@ -29,7 +29,10 @@ public class Recipe_Resource {
     @EJB
     Recipe_Bean recipe_bean;
 
-
+    /**
+     * Function for GET method that sends data from the database if there is any
+     * @return A response status code 200 or 204
+     */
     @GET
     public Response getRecipe(){
         List<Recipe> recipe = recipe_bean.getRecipe();
@@ -41,6 +44,11 @@ public class Recipe_Resource {
         }
     }
     
+    /**
+     * Function for POST method
+     * @param recipe
+     * @return A response status code 201 or 400
+     */
     @POST
     public Response postRecipe(Recipe recipe){
         if(recipe_bean.postRecipe(recipe)){

@@ -18,6 +18,10 @@ public class Recipe {
     private String username;
     private String image;
 
+    /**
+     *
+     * @param builder
+     */
     public Recipe(Recipe_Builder builder) {
         this.title = builder.getTitle();
         this.description = builder.getDescription();
@@ -27,7 +31,7 @@ public class Recipe {
         this.username = builder.getUsername();
         this.image = builder.getImage();
     }
-    
+
     public String getTitle() {
         return title;
     }
@@ -83,8 +87,5 @@ public class Recipe {
     public void setImage(String image) {
         this.image = image;
     }
-    
-    
-    
-    
+ 
 }

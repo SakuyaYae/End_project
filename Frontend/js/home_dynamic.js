@@ -1,4 +1,4 @@
-const recipe_request = new Request("http://localhost:8080/End_project/api/recipe", {method:"GET", mode:"cors"});
+const recipe_request = new Request("http://its.te4.nu:8443/Samuel/api/recipe", {method:"GET", mode:"cors"});
 var recipe_reponse;
 
 async function main(){

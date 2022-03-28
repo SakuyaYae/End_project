@@ -15,7 +15,9 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import sakuya.yae.end_project.beans.Recipe_Bean;
+import sakuya.yae.end_project.beans.User_bean;
 import sakuya.yae.end_project.entities.Recipe;
+import sakuya.yae.end_project.entities.Users;
 
 /**
  *
@@ -28,6 +30,8 @@ public class Recipe_Resource {
     
     @EJB
     Recipe_Bean recipe_bean;
+    User_bean user_bean;
+    Users user;
 
     /**
      * Function for GET method that sends data from the database if there is any
@@ -47,15 +51,20 @@ public class Recipe_Resource {
     /**
      * Function for POST method
      * @param recipe
-     * @return A response status code 201 or 400
+     * @return A response status code 201 or 400 if user is a valid user or 401 is user is not a valid user
      */
     @POST
     public Response postRecipe(Recipe recipe){
-        if(recipe_bean.postRecipe(recipe)){
-            return Response.status(Response.Status.CREATED).build();
+        if(user_bean.checkUser(user)){
+            if(recipe_bean.postRecipe(recipe)){
+                return Response.status(Response.Status.CREATED).build();
+            }
+            else{
+                return Response.status(Response.Status.BAD_REQUEST).build();
+            }
         }
         else{
-            return Response.status(Response.Status.BAD_REQUEST).build();
+            return Response.status(Response.Status.UNAUTHORIZED).build();
         }
     }
 }

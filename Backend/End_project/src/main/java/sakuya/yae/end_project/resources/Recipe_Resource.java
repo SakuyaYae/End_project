@@ -9,6 +9,7 @@ import java.util.List;
 import javax.ejb.EJB;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
+import javax.ws.rs.HeaderParam;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
@@ -30,8 +31,9 @@ public class Recipe_Resource {
     
     @EJB
     Recipe_Bean recipe_bean;
+    
+    @EJB
     User_bean user_bean;
-    Users user;
 
     /**
      * Function for GET method that sends data from the database if there is any
@@ -50,11 +52,13 @@ public class Recipe_Resource {
     
     /**
      * Function for POST method
+     * @param authorization
      * @param recipe
      * @return A response status code 201 or 400 if user is a valid user or 401 is user is not a valid user
      */
     @POST
-    public Response postRecipe(Recipe recipe){
+    public Response postRecipe(@HeaderParam("Authorization") String authorization , Recipe recipe){
+        Users user = user_bean.createUser(authorization);
         if(user_bean.checkUser(user)){
             if(recipe_bean.postRecipe(recipe)){
                 return Response.status(Response.Status.CREATED).build();

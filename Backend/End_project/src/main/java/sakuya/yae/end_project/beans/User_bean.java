@@ -27,6 +27,7 @@ public class User_bean {
      * @return A User object whit a username and password
      */
     public Users createUser(String user_data){
+        System.out.println(user_data);
         user_data = user_data.substring(6).trim();
         
         byte bytes[] = Base64.getDecoder().decode(user_data);

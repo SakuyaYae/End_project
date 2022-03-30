@@ -31,7 +31,11 @@ public class Recipe {
         this.username = builder.getUsername();
         this.image = builder.getImage();
     }
-
+    
+    public Recipe(){
+    
+    }
+     
     public String getTitle() {
         return title;
     }
